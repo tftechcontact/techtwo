@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Tech </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="pplfavicon.png?v=1">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #cfbd9a; 
+            line-height: 1.6;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto auto auto auto auto;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden; 
+        }
+
+        /* ------------------------------------------------------------------------- */
+        /* DECORATIVE GEOMETRIC BACKGROUND ACCENTS                                   */
+        /* ------------------------------------------------------------------------- */
+        .bg-shape {
+            position: absolute;
+            z-index: -1; 
+        }
+        
+        .shape-roof {
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 180px;
+            background-color: #756356;
+            opacity: 0.15;
+            clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
+        }
+        .shape-tri-1 {
+            top: 420px;
+            left: -30px;
+            width: 260px; 
+            height: 220px;
+            background-color: #756356;
+            opacity: 0.12;
+            clip-path: polygon(0% 10%, 100% 20%, 60% 90%); 
+        }
+        .shape-tri-2 {
+            top: 920px;
+            left: -50px;
+            width: 290px; 
+            height: 240px;
+            background-color: #2c2520;
+            opacity: 0.08;
+            clip-path: polygon(0% 0%, 100% 40%, 20% 100%); 
+        }
+        .shape-tri-3 {
+            top: 1420px;
+            left: -40px;
+            width: 280px; 
+            height: 250px;
+            background-color: #756356;
+            opacity: 0.14;
+            clip-path: polygon(10% 0%, 100% 60%, 0% 80%); 
+        }
+
+        .shape-cube {
+            top: 60px;
+            left: 20px;
+            width: 90px;
+            height: 90px;
+            background-color: #2c2520;
+            opacity: 0.1;
+            border-radius: 4px;
+            transform: rotate(15deg);
+        }
+        .shape-cube-2 {
+            top: 380px;
+            left: -15px;
+            width: 75px;
+            height: 75px;
+            background-color: #2c2520;
+            opacity: 0.08;
+            border-radius: 3px;
+            transform: rotate(-22deg);
+        }
+        .shape-cube-3 {
+            top: 680px;
+            left: 35px;
+            width: 110px;
+            height: 110px;
+            background-color: #2c2520;
+            opacity: 0.07;
+            border-radius: 6px;
+            transform: rotate(40deg);
+        }
+        .shape-cube-4 {
+            top: 1120px;
+            left: -30px;
+            width: 85px;
+            height: 85px;
+            background-color: #2c2520;
+            opacity: 0.12;
+            border-radius: 4px;
+            transform: rotate(12deg);
+        }
+        .shape-cube-5 {
+            top: 1510px;
+            left: 15px;
+            width: 95px;
+            height: 95px;
+            background-color: #2c2520;
+            opacity: 0.09;
+            border-radius: 5px;
+            transform: rotate(-18deg);
+        }
+        .shape-cube-6 {
+            top: 1850px;
+            left: -10px;
+            width: 70px;
+            height: 70px;
+            background-color: #2c2520;
+            opacity: 0.11;
+            border-radius: 2px;
+            transform: rotate(33deg);
+        }
+
+        .shape-sm-cube-1 {
+            top: 160px;
+            left: 140px;
+            width: 40px;
+            height: 40px;
+            background-color: #514339;
+            opacity: 0.13;
+            border-radius: 3px;
+            transform: rotate(45deg);
+        }
+        .shape-sm-cube-2 {
+            top: 550px;
+            left: 25px;
+            width: 45px;
+            height: 45px;
+            background-color: #514339;
+            opacity: 0.11;
+            border-radius: 2px;
+            transform: rotate(-15deg);
+        }
+        .shape-sm-cube-3 {
+            top: 820px;
+            left: -10px;
+            width: 35px;
+            height: 35px;
+            background-color: #514339;
+            opacity: 0.15;
+            border-radius: 3px;
+            transform: rotate(28deg);
+        }
+        .shape-sm-cube-4 {
+            top: 1020px;
+            left: 60px;
+            width: 50px;
+            height: 50px;
+            background-color: #514339;
+            opacity: 0.09;
+            border-radius: 4px;
+            transform: rotate(-35deg);
+        }
+        .shape-sm-cube-5 {
+            top: 1280px;
+            left: 10px;
+            width: 38px;
+            height: 38px;
+            background-color: #514339;
+            opacity: 0.14;
+            border-radius: 2px;
+            transform: rotate(18deg);
+        }
+        .shape-sm-cube-6 {
+            top: 1680px;
+            left: -20px;
+            width: 42px;
+            height: 42px;
+            background-color: #514339;
+            opacity: 0.12;
+            border-radius: 3px;
+            transform: rotate(50deg);
+        }
+
+        .shape-mid-cube-1 {
+            top: 270px;
+            left: 80px;
+            width: 60px;
+            height: 60px;
+            background-color: #42352b; 
+            opacity: 0.1;
+            border-radius: 4px;
+            transform: rotate(25deg);
+        }
+        .shape-mid-cube-2 {
+            top: 490px;
+            left: 110px;
+            width: 55px;
+            height: 55px;
+            background-color: #42352b;
+            opacity: 0.12;
+            border-radius: 3px;
+            transform: rotate(-40deg);
+        }
+        .shape-mid-cube-3 {
+            top: 960px;
+            left: 120px;
+            width: 65px;
+            height: 65px;
+            background-color: #42352b;
+            opacity: 0.08;
+            border-radius: 5px;
+            transform: rotate(15deg);
+        }
+        .shape-mid-cube-4 {
+            top: 1390px;
+            left: 90px;
+            width: 50px;
+            height: 50px;
+            background-color: #42352b;
+            opacity: 0.11;
+            border-radius: 4px;
+            transform: rotate(-10deg);
+        }
+        .shape-mid-cube-5 {
+            top: 1740px;
+            left: 45px;
+            width: 58px;
+            height: 58px;
+            background-color: #42352b;
+            opacity: 0.13;
+            border-radius: 3px;
+            transform: rotate(62deg);
+        }
+
+        .shape-line {
+            top: 210px;
+            left: 0;
+            width: 100%;
+            max-width: 1100px;
+            height: 8px;
+            background-color: #7a828a;
+            opacity: 0.6;
+            border-radius: 0 4px 4px 0;
+        }
+        .shape-line-angled {
+            top: 190px;
+            left: 0;
+            width: 100%;
+            max-width: 1100px;
+            height: 8px;
+            background-color: #7a828a;
+            opacity: 0.5;
+            border-radius: 0 4px 4px 0;
+            transform-origin: top left;
+            transform: rotate(20deg);
+        }
+        /* ------------------------------------------------------------------------- */
+
+        h1 {
+            font-family: 'Cookie', cursive;
+            font-size: 4rem;
+            color: #2c2520;
+            margin-top: 60px; 
+            margin-bottom: 10px;
+        }
+        
+        .hero-banner {
+            background-color: #2c2520;
+            color: #f4efe6;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            border-radius: 4px;
+            margin-bottom: 30px; 
+        }
+        .hero-title {
+            font-family: 'Cookie', cursive;
+            font-size: 3rem;
+            color: #cfbd9a;
+            margin-bottom: 5px;
+        }
+        .hero-subtitle {
+            font-size: 1.1rem;
+            font-weight: 400;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .about-heading {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #2c2520;
+        }
+        section {
+            padding: 0 40px;
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .section-one {
+            text-align: center;
+        }
+        .about-block {
+            background-color: #f4efe6; 
+            border: 4px solid #756356; 
+            border-radius: 8px; 
+            padding: 40px; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); 
+            text-align: left;
+            width: 100%;
+            margin-bottom: 30px; 
+        }
+        .section-two-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            width: 100%;
+            margin-bottom: 30px; 
+        }  
+        
+        .section-three {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            background-color: #f4efe6; 
+            border: 4px solid #756356; 
+            border-radius: 8px; 
+            padding: 40px; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); 
+            text-align: left;
+            width: 100%;
+            margin-bottom: 30px; 
+        }
+        .section-four {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            background-color: #f4efe6; 
+            border: 4px solid #756356; 
+            border-radius: 8px; 
+            padding: 40px; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); 
+            text-align: left;
+            width: 100%;
+            margin-bottom: 60px; 
+        }
+        .contact-card, .checkout-card {
+            background-color: #f4efe6;
+            border: 4px solid #756356;
+            border-radius: 8px;
+            padding: 30px 40px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .contact-card h3, .checkout-card h3 {
+            font-size: 1.8rem;
+            color: #2c2520;
+            margin-bottom: 15px;
+        }
+        .contact-card p, .checkout-card p {
+            color: #2c2520;
+            margin-bottom: 20px;
+            max-width: 400px;
+        }
+        .email-button {
+            display: inline-block;
+            background-color: #756356;
+            color: #f4efe6;
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .sea-blue-bar {
+            width: 100%;
+            height: 45px;
+            background-color: #1a5f7a; 
+            margin: 20px 0;
+        }
+
+        /* CAROUSEL IMPLEMENTATION STYLES */
+        .carousel-wrapper {
+            width: 460px;
+            height: 340px;
+            overflow: hidden;
+            border-radius: 6px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .carousel-track {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            animation: slideAnimation 12s infinite ease-in-out;
+        }
+        .carousel-track img {
+            width: 460px;
+            height: 340px;
+            object-fit: fill;
+            display: block;
+        }
+        @keyframes slideAnimation {
+            0%, 28% { transform: translateX(0); }
+            33%, 61% { transform: translateX(-460px); }
+            66%, 95% { transform: translateX(-920px); }
+            100% { transform: translateX(0); }
+        }
+
+        .section-four .media-container img {
+            width: 460px;       
+            height: 340px;      
+            display: block;
+            object-fit: fill;   
+            border-radius: 6px;
+            margin: 0 auto; 
+        }
+
+        footer {
+            width: 100%;
+            background-color: #2c2520;
+            color: #f4efe6;
+            padding: 40px 20px;
+        }
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .footer-content img {
+            height: 1.8rem;
+            width: auto;
+            vertical-align: middle;
+            display: inline-block;
+        }
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            section {
+                padding: 0 20px;
+            }
+            .section-two-grid, .section-three, .section-four {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .contact-card, .checkout-card, .about-block, .section-three, .section-four {
+                padding: 25px;
+            }
+            .section-four .text-container {
+                order: 2;
+            }
+            .section-four .media-container {
+                order: 1;
+            }
+            h1 {
+                font-size: 3rem;
+            }
+            .about-heading {
+                font-size: 1.8rem;
+            }
+            .bg-shape {
+                display: none; 
+            }
+            .carousel-wrapper {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 460 / 340;
+            }
+            .carousel-track {
+                animation: slideAnimationMobile 12s infinite ease-in-out;
+            }
+            .carousel-track img {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 460 / 340;
+            }
+            .section-four .media-container img {
+                width: 100%;
+                height: auto;
+            }
+        }
+        @keyframes slideAnimationMobile {
+            0%, 28% { transform: translateX(0); }
+            33%, 61% { transform: translateX(-100%); }
+            66%, 95% { transform: translateX(-200%); }
+            100% { transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-shape shape-roof"></div>
+    <div class="bg-shape shape-cube"></div>
+    <div class="bg-shape shape-line"></div>
+    <div class="bg-shape shape-line-angled"></div>
+    
+    <div class="bg-shape shape-cube-2"></div>
+    <div class="bg-shape shape-mid-cube-1"></div>
+    <div class="bg-shape shape-tri-1"></div>
+    <div class="bg-shape shape-sm-cube-1"></div>
+    <div class="bg-shape shape-sm-cube-2"></div>
+    <div class="bg-shape shape-mid-cube-2"></div>
+    
+    <div class="bg-shape shape-cube-3"></div>
+    <div class="bg-shape shape-tri-2"></div>
+    <div class="bg-shape shape-sm-cube-3"></div>
+    <div class="bg-shape shape-mid-cube-3"></div>
+    
+    <div class="bg-shape shape-cube-4"></div>
+    <div class="bg-shape shape-sm-cube-4"></div>
+    <div class="bg-shape shape-cube-5"></div>
+    <div class="bg-shape shape-tri-3"></div>
+    <div class="bg-shape shape-mid-cube-4"></div>
+    <div class="bg-shape shape-sm-cube-5"></div>
+    <div class="bg-shape shape-mid-cube-5"></div>
+    <div class="bg-shape shape-sm-cube-6"></div>
+    <div class="bg-shape shape-cube-6"></div>
+
+    <section class="section-one">
+        <div class="text-container">
+            <h1> Tech </h1>
+
+            <div class="sea-blue-bar"></div>
+
+            <div class="hero-banner">
+                <h2 class="hero-title"> Welcome! </h2>
+                <p class="hero-subtitle">
+                    Pull up a chair and make yourself at home.
+                </p>
+            </div>
+
+            <div class="about-block">
+                <h2 class="about-heading"><u> About </u></h2>
+                <hr style="border: 0; height: 1px; background: #2c2520; margin: 10px 0;">
+                
+                <p class="about-content"> 
+                    Business Model: Making small websites for small business owners. <br>
+                    Focus: Helping small businesses and freelancers run a static website. Like having an online business card. <br>
+                    Best For: Residential contractors, Handymen, Electricians, Plumbers, Painters, Artists, Authors. <br>
+                    Benefits: Affordable for small contractors, independent contractors, and freelancers. <br>
+                    Service Areas: Nationwide Services. Based out of Cincinnati, Ohio. <br>
+                    Pricing Model:  $30.00 per website and initial setup. $10.70 per hour for upkeep afterwards. <br>
+                </p>
+            </div>
+
+            <div class="section-two-grid">
+                <div class="contact-card">
+                    <h3><u>Contact Information</u></h3>
+                    <p>Operating Hours: 9 am -6 pm, M-Sat</p>
+                    <p>Call at (513) 266-8720</p>
+                    <p>For services, please email: </p>
+                    <a href="mailto:msbookit@gmail.com" target="_blank" class="email-button">Send Email</a>
+                </div>
+                <div class="checkout-card">
+                    <h3><u>   </u></h3>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-three">
+        <div class="text-container">
+            <h2> we want agency </h2>
+            <p style="margin-top: 10px;">                
+                The idea here is that there's a plethora of options to build websites and it's hard to choose the most feasible option. 
+                There are plenty of platforms where the customer can move features around on the screen with a click of the mouse but 
+                those options are limited with only choosing out of a handful of fonts or not being able to choose the background color of website. 
+                Plus, on top of that the prices can range from $18.00 monthly subscription fees up to $200 with upgrades and surprise fees. 
+                But where is the option for the small business that just wants a one page website showcasing some examples of their work 
+                and making a professional platform to entice potential customers. Why should that business owner or freelancer 
+                who would only get 10,000 visitors to their page per month pay the same as someone who is getting 100,000 visitors 
+                because that's a big difference in bandwith. We want a sense that we have control over our money and to not be swindled. 
+                I want to help assist people and provide a block of code for each customer along with assistance in signing up for a vetted 
+                hosting platform that costs $5-10 per month, or less than. There's just no need to spend more for less.
+            </p>
+        </div>
+        <div class="media-container">
+            <div class="carousel-wrapper">
+                <div class="carousel-track">
+                    <img src="pplmarketing.jpg" alt="Carousel Image One">
+                    <img src="pplmarketing2.jpg" alt="Carousel Image Two">
+                    <img src="pplmarketing3.jpg" alt="Carousel Image Three">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-four">
+        <div class="text-container">
+            <h2> Agent Ms. Dev </h2>
+                <p>  
+                    technical skills: HTML, CSS, UI/UX best practices.
+                </p>
+            <div style="margin-top: 10px; padding-left: 20px;">
+                <ul>
+                    <li> 
+                      Certified HTML Developer, W3Schools, Oct 2019. 
+                    </li>
+                    <li style="margin-top: 5px;">
+                      Certified Professional Development, Customer Care Skills and Telephone Etiquette Course, Alison: Online Courses, November 17, 2025.
+                    </li>  
+                </ul>   
+            </div>
+            <br>
+            <div>
+                <h3><u> Upcoming Accomplishments by 2026   </u></h3>
+                    <p> acquired DBA in Ohio </p>
+                    <p> acquired P.O. Box </p>
+                    <p> BBB Accreditation </p>
+            </div>
+        </div>
+        <div class="media-container">
+            <img src="ms.jpg" alt="Placeholder Image Two">
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p> 
+                &copy; <b> Tech </b> 2026 All Rights Reserved. &nbsp; <a href="https://instagram.com/mt1427wow" target="_blank"><img src="instaicon.png" alt="Instagram"></a>
+            </p>
+            <div>
+                <p style="font-size: 0.9rem; color: #f4efe6;">Terms of Service provided at checkout.</p> 
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
